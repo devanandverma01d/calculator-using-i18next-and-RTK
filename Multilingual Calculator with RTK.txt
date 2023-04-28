@@ -1,0 +1,19 @@
+Multilingual Calculator with RTK
+1.To learn how to create MultiLingual Websites
+2.To Manage the state of the application using RTK
+
+
+page1 - calculator
+page2 - other
+
+https://www.i18next.com/
+
+https://react.i18next.com/
+
+You can convert labels to diff langu
+
+
+ npm install i18next --save
+
+
+
