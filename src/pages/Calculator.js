@@ -2,17 +2,13 @@ import React, { useEffect } from 'react'
 import i18n from 'i18next';
 
 import { useTranslation, initReactI18next } from "react-i18next";
-import LanguageDropDown from '../components/LanguageDropDown';
+import ChangeLanguage from '../components/ChangeLanguage';
+import { Link } from 'react-router-dom';
 
-
-//useTranslation()x1
-//object.method()
 i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(initReactI18next)
   .init({
-    // the translations
-    // (tip move them in a JSON file and import them,
-    // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
+    
     resources: {
         en: {
             translation: {
@@ -24,44 +20,32 @@ i18n
               "calculator": "कैलकुलेटर"
             }
         },
-        fr: {
+        zh: {
             translation: {
-              "calculator": "Calculatrice"
+              "calculator": "计算器"
             }
         },
-        nl: {
-            translation: {
-              "calculator": "Rekenmachine"
-            }
-        },
+        
     },
-    lng: "hi", // if you're using a language detector, do not define the lng option
+    lng: "hi",
     fallbackLng: "en",
 
     interpolation: {
-      escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
+      escapeValue: false 
     }
 });
-
-
-
 export default function Calculator() {
-
-    //2.1 Hooks area
     const { t }  = useTranslation();
 
     useEffect(()=>{
         
     },[])
-    //2.2 functions definaton
-
-
-    //2.3 Return state
-
     return (
         <>
-            <LanguageDropDown />
-            <h1>Calculator Design Using HTML Layout</h1>
+            <Link to="/">Go to Home Page</Link>
+            <ChangeLanguage />
+            
+            <h1>Calculator Design Using i18next and RTK</h1>
             <div className="container">
                 <div className="header">{t('calculator')}</div>
                 <input type="text" className="result" />
